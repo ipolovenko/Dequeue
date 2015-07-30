@@ -89,7 +89,31 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing
     public static void main(String[] args) {
-
+        Deque<String> d = new Deque<>();
+        d.addFirst("first");
+        StdOut.print("added first. size=" + d.size() + "\n");
+        StdOut.print("last: " + d.removeLast() + " size=" + d.size() + "\n");
+        d.addLast("last");
+        StdOut.print("added last. size=" + d.size() + "\n");
+        StdOut.print("first: " + d.removeFirst() + " size=" + d.size() + "\n");
+        String a[] = {"one", "two", "three", "four", "five"};
+        for (String s : a) {
+            d.addLast(s);
+        }
+        Iterator<String> it = d.iterator();
+        while(it.hasNext()) {
+            StdOut.print(it.next() + "\n");
+        }
+        d.addLast("last1");
+        StdOut.print("added last1. size=" + d.size() + "\n");
+        d.addLast("last2");
+        StdOut.print("added last2. size=" + d.size() + "\n");
+        StdOut.print("first: " + d.removeFirst() + " size=" + d.size() + "\n");
+        StdOut.print("first: " + d.removeFirst() + " size=" + d.size() + "\n");
+        while (!d.isEmpty()) {
+            StdOut.print(d.removeLast() + "\n");
+        }
+        StdOut.print("size=" + d.size() + "\n");
     }
 
     private static class Node<i> {
